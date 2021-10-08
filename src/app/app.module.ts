@@ -33,6 +33,8 @@ import { DynamicFormComponent } from './general-components/dynamic-form/dynamic-
 import { FormBaseComponent } from './general-components/dynamic-form/form-base/form-base.component';
 import { DialogComponent } from './general-components/dialog/dialog.component';
 import { HeaderComponent } from './site-layout/header/header.component';
+import { PublicContentsComponent } from './site-layout/public-contents/public-contents.component';
+import { LanguagesComponent } from './site-layout/languages/languages.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { HeaderComponent } from './site-layout/header/header.component';
     FormBaseComponent,
     BaseTableComponent,
     DialogComponent,
-    HeaderComponent
+    HeaderComponent,
+    PublicContentsComponent,
+    LanguagesComponent
 
   ],
   imports: [

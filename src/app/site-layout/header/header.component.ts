@@ -13,9 +13,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   headerElements: HeaderElement[] = [
     { icon: 'home', text: 'Kezdőlap', url: '/' },
-    { icon: 'public', text: 'Publikus (statikus) tartalmak', url: '/statikus-tartalmak' },
+    { icon: 'public', text: 'Publikus (statikus) tartalmak', url: '/publikus-tartalmak' },
     { icon: 'language', text: 'Nyelvek kezelése', url: '/nyelvek' },
-  ]
+  ];
   headerTitle: string = 'Dreamjobs 4 you admin felület';
   activeName: string = 'Kezdőlap';
   routerEventSubscriptions: Subscription = new Subscription();

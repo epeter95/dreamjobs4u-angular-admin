@@ -1,1 +1,15 @@
-<p>home works!</p>
+<app-border-card [option]="homeOption"></app-border-card>
+<div class="home-cards-container">
+    <a class="home-card-link" *ngFor="let element of homeElements" [routerLink]="element.url">
+        <mat-card class="home-card">
+        <mat-card-header>
+                <mat-card-title>
+                    {{element.title}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{element.description}}
+                </mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+    </a>
+</div>

@@ -1,0 +1,19 @@
+.home-card-link{
+    text-decoration: none;
+    display: block;
+    flex: 1;
+}
+
+.home-cards-container{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    gap: 30px;
+}
+
+.home-card{
+    height: 100%;
+}
+.home-card:hover{
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3) ;
+}
