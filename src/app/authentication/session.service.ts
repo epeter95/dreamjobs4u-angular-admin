@@ -22,9 +22,4 @@ export class SessionService {
       location.reload();
     }
   }
-
-  logOut(){
-    localStorage.removeItem('admin-token');
-    location.reload();
-  }
 }
