@@ -18,7 +18,6 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   @Input() bases: Base<string>[] | null = [];
   @Input() serviceType: string = '';
   @Input() serviceUrl: string = '';
-  @Input() isRefreshNeeded: boolean = false;
   @Output() panelEmitter = new EventEmitter();
   fileSubscription!: Subscription;
   modifyID: string = '';
@@ -118,14 +117,13 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
       });
       return;
     }
+    
     this.tableService.setNextText('refresh');
+    this.dataService.setNextText('refresh');
     this.panelEmitter.emit(panelName);
     this.form.reset();
     this.initForm();
     this.fileDatas = new Array();
-    if (this.isRefreshNeeded) {
-      this.dataService.setNextText('refresh');
-    }
     this.dialog.open(DialogComponent, {
       data: { icon: 'done', text: dialogText }
     })

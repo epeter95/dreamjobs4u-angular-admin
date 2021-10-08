@@ -11,7 +11,7 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-panel-description>
-      <app-dynamic-form (panelEmitter)="closePanelOnSubmit($event)" [isRefreshNeeded]="option.dropdownRefresh! "
+      <app-dynamic-form (panelEmitter)="closePanelOnSubmit($event)"
         [serviceUrl]="option.apiFormUrl ? option.apiFormUrl : option.apiUrl!" [serviceType]="'create'"
         [bases]="option.formBases" style="width: 100%"></app-dynamic-form>
     </mat-panel-description>

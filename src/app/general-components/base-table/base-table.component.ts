@@ -117,7 +117,8 @@ export class BaseTableComponent implements OnInit,OnDestroy {
       if(ref.componentInstance.acceptance){
         let url = this.option.apiFormUrl ? this.option.apiFormUrl : this.option.apiUrl;
         this.dataService.deleteData(url!, id).subscribe(res => {
-          this.refreshTable();
+          this.tableService.setNextText('refresh');
+          this.dataService.setNextText('refresh');
         });
       }
     })
