@@ -16,10 +16,12 @@ export class SessionService {
     return localStorage.getItem('admin-token');
   }
 
-  clearSession(){
+  clearSession(needReload: boolean){
     if(localStorage.getItem('admin-token')){
       localStorage.removeItem('admin-token');
-      location.reload();
+      if(needReload){
+        location.reload();
+      }
     }
   }
 }

@@ -32,6 +32,7 @@ import { BorderCardComponent } from './general-components/border-card/border-car
 import { DynamicFormComponent } from './general-components/dynamic-form/dynamic-form.component';
 import { FormBaseComponent } from './general-components/dynamic-form/form-base/form-base.component';
 import { DialogComponent } from './general-components/dialog/dialog.component';
+import { HeaderComponent } from './site-layout/header/header.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DialogComponent } from './general-components/dialog/dialog.component';
     DynamicFormComponent,
     FormBaseComponent,
     BaseTableComponent,
-    DialogComponent
+    DialogComponent,
+    HeaderComponent
 
   ],
   imports: [
