@@ -2,7 +2,7 @@
     <mat-icon class="dialog-icon">{{data.icon}}</mat-icon>
     <div class="dialog-text">
       <p>{{data.text}}</p>
-      <p *ngIf="data.value">reason: {{data.value}}</p>
+      <p *ngIf="data.value">{{data.value}}</p>
     </div>
     <div class="dialog-buttons-container">
         <button mat-raised-button color="primary" class="dialog-button" (click)="okDialog()">Ok</button>

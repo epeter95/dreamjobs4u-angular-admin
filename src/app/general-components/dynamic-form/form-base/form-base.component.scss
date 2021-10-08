@@ -1,6 +1,6 @@
 .form-base-field{
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .form-base-image{
@@ -15,4 +15,22 @@
 .example-additional-selection {
   opacity: 0.75;
   font-size: 0.75em;
+}
+
+.checkbox-toggle{
+  display: block;
+  margin-bottom: 20px;
+}
+
+.checkbox-field{
+  display: flex;
+  column-gap: 20px;
+  flex-flow: wrap;
+}
+
+.checkbox-hint{
+  color: blue;
+  font-size: 75%;
+  margin-left: 10px;
+  font: 400  Roboto, "Helvetica Neue", sans-serif;
 }

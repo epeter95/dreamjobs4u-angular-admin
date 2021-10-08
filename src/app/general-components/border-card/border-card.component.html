@@ -7,7 +7,7 @@
   <mat-expansion-panel #createPanel *ngIf="option.formBases && !option.disableCreatePanel">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Create {{option.name}}!
+        {{option.name}} létrehozása!
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-panel-description>
@@ -19,7 +19,7 @@
   <mat-expansion-panel #modifyPanel *ngIf="option.formBases" disabled class="base-expansion-panel">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Update {{option.name}}!
+        {{option.name}} módosítása!
         <mat-icon class="modify-close-icon" (click)="closePanel()">close</mat-icon>
       </mat-panel-title>
     </mat-expansion-panel-header>

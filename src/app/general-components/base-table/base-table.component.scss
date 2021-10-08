@@ -2,13 +2,10 @@
     width:100%
 }
 
-.base-table-edit-button{
-    margin-right: 5px;
-    float: right;
-}
 
-.base-table-delete-button{
-    float: right;
+.base-table-buttons-container{
+    display: flex;
+    column-gap: 20px;
 }
 
 .admin-page-general-table-container{

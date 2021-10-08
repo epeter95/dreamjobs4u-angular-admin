@@ -54,12 +54,12 @@
         <mat-error *ngIf="form.controls[base.key].hasError('required')">{{base.label}} is required!</mat-error>
     </mat-form-field>
 
-    <div *ngSwitchCase="'checkbox'">
-        <mat-slide-toggle [formControlName]="base.key">{{base.label}}</mat-slide-toggle>
-        <mat-hint [style.color]="base.required ? 'red' : 'black'">{{base.hint}}</mat-hint>
+    <div *ngSwitchCase="'checkbox'" class="form-base-field checkbox-field">
+        <mat-slide-toggle class="checkbox-toggle" [formControlName]="base.key">{{base.label}}</mat-slide-toggle>
+        <mat-hint class="checkbox-hint" [style.color]="base.required ? 'red' : 'rgba(0,0,0,.6)'">{{base.hint}}</mat-hint>
     </div>
 
-    <mat-form-field appearance="fill" *ngSwitchCase="'multidropdown'">
+    <mat-form-field appearance="fill" *ngSwitchCase="'multidropdown'" class="form-base-field">
         <mat-label [style.color]="base.required ? 'red' : 'black'">{{base.label}}</mat-label>
         <mat-select [formControlName]="base.key" multiple>
             <mat-option *ngFor="let option of base.options" [value]="option.key">{{option.value}}</mat-option>

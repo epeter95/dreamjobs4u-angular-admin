@@ -14,14 +14,14 @@
                 </th>
                 <td [ngSwitch]="col.format" mat-cell *matCellDef="let element" class="base-table-cell">
                     <div *ngSwitchCase="'modifiers'" class="base-table-buttons-container">
-                        <button mat-raised-button color="primary" class="base-table-delete-button"
-                            (click)="deleteClick(element.id)">Delete</button>
                         <button mat-raised-button color="primary" class="base-table-edit-button"
-                            (click)="modifyClick(element)">Update</button>
+                        (click)="modifyClick(element)">Módosítás</button>
+                        <button mat-raised-button color="primary" class="base-table-delete-button"
+                            (click)="deleteClick(element.id)" *ngIf="getExceptions(element)">Törlés</button>
                     </div>
                     <div *ngSwitchCase="'modify'" class="base-table-buttons-container">
                         <button mat-raised-button color="primary" class="base-table-edit-button"
-                            (click)="modifyClick(element)">Update</button>
+                            (click)="modifyClick(element)">Módosítás</button>
                     </div>
                     <div *ngSwitchCase="'json'">
                         <span *ngIf="col.searchAttributeParent; else simplejson">{{element[col.id][col.searchAttributeParent!][col.searchAttribute!]}}</span>
@@ -29,7 +29,7 @@
                             {{element[col.id][col.searchAttribute!]}}
                         </ng-template>
                     </div>
-                    <div *ngSwitchCase="'boolean'">{{element[col.id] ? 'Yes' : 'No'}}</div>
+                    <div *ngSwitchCase="'boolean'">{{element[col.id] ? 'Igen' : 'Nem'}}</div>
                     <div *ngSwitchCase="'date'">{{element[col.id] | date: 'YYYY.MM.dd-HH:mm:ss'}}</div>
                     <div *ngSwitchCase="'wysiwyg'" style="max-height: 58px;overflow: hidden;text-overflow: ellipsis;padding: 5px" [innerHTML]="element[col.id] | sanitizer:'html'"></div>
                     <div *ngSwitchDefault style="max-height: 58px;overflow: hidden;text-overflow: ellipsis;padding: 5px">{{element[col.id]}}</div>

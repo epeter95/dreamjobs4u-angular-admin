@@ -55,7 +55,7 @@ export class Base<T> {
       this.fileAccept = options.fileAccept || 'image/*';
       this.optionValue = options.optionValue ||'';
       this.optionValueParent = options.optionValueParent || '';
-      this.width = options.width || '52%';
+      this.width = options.width || '100%';
       this.hint = options.hint || '';
       this.order = options.order === undefined ? 1 : options.order;
       this.controlType = options.controlType || '';

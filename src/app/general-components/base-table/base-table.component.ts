@@ -111,7 +111,7 @@ export class BaseTableComponent implements OnInit,OnDestroy {
 
   deleteClick(id: string) {
     const ref =this.dialog.open(DialogComponent,{
-      data: {icon: 'warning', text: 'Are you sure to want to delete that Item?', value: 'Operation cannot be reversed!', cancel: true}
+      data: {icon: 'warning', text: 'Biztos hogy törli az adott elemet?', value: 'A művelet nem visszavonható!', cancel: true}
     });
     ref.afterClosed().subscribe(()=>{
       if(ref.componentInstance.acceptance){
@@ -121,6 +121,14 @@ export class BaseTableComponent implements OnInit,OnDestroy {
         });
       }
     })
+  }
+
+  getExceptions(element: any){
+    if(element.key=='hun'){
+      return false;
+    }else{
+      return true;
+    }
   }
 
 }
