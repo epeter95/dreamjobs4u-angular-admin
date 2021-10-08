@@ -25,7 +25,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
+
 import { SanitizerPipe } from './pipes/sanitizer.pipe';
+import { BaseTableComponent } from './general-components/base-table/base-table.component';
+import { BorderCardComponent } from './general-components/border-card/border-card.component';
+import { DynamicFormComponent } from './general-components/dynamic-form/dynamic-form.component';
+import { FormBaseComponent } from './general-components/dynamic-form/form-base/form-base.component';
+import { DialogComponent } from './general-components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,13 @@ import { SanitizerPipe } from './pipes/sanitizer.pipe';
     SiteLayoutComponent,
     HomeComponent,
     LoginComponent,
-    SanitizerPipe
+    SanitizerPipe,
+    BorderCardComponent,
+    DynamicFormComponent,
+    FormBaseComponent,
+    BaseTableComponent,
+    DialogComponent
+
   ],
   imports: [
     BrowserModule,
@@ -42,6 +54,7 @@ import { SanitizerPipe } from './pipes/sanitizer.pipe';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

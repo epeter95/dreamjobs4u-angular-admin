@@ -1,0 +1,16 @@
+.base-expansion-panel{
+    margin-bottom: 20px;
+}
+
+::ng-deep .mat-expansion-panel-header[aria-disabled=true] {
+    color: rgba(0,0,0,1);
+}
+
+.modify-close-icon{
+    cursor: pointer;
+    margin: 0 -21px 0 auto;
+}
+
+.border-card{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,36 @@
+.base-table{
+    width:100%
+}
+
+.base-table-edit-button{
+    margin-right: 5px;
+    float: right;
+}
+
+.base-table-delete-button{
+    float: right;
+}
+
+.admin-page-general-table-container{
+    overflow: auto;
+}
+
+.base-table-header-cell{
+    min-width: 200px;
+    padding: 5px 5px 5px 25px;
+}
+
+.base-table-cell{
+    padding-left: 20px;
+
+    p{
+        padding: 5px 20px 5px 0;
+        max-height: 50px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+.base-table-header-id-cell{
+    min-width: 50px;
+}

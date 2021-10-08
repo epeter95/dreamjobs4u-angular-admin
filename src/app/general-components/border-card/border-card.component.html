@@ -1,0 +1,34 @@
+<mat-card class="border-card">
+  <mat-card-header>
+    <mat-icon mat-card-avatar style="font-size: 32px;">{{option.icon}}</mat-icon>
+    <mat-card-title>{{option.title}}</mat-card-title>
+    <mat-card-subtitle>{{option.subtitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-expansion-panel #createPanel *ngIf="option.formBases && !option.disableCreatePanel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Create {{option.name}}!
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-panel-description>
+      <app-dynamic-form (panelEmitter)="closePanelOnSubmit($event)" [isRefreshNeeded]="option.dropdownRefresh! "
+        [serviceUrl]="option.apiFormUrl ? option.apiFormUrl : option.apiUrl!" [serviceType]="'create'"
+        [bases]="option.formBases" style="width: 100%"></app-dynamic-form>
+    </mat-panel-description>
+  </mat-expansion-panel>
+  <mat-expansion-panel #modifyPanel *ngIf="option.formBases" disabled class="base-expansion-panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Update {{option.name}}!
+        <mat-icon class="modify-close-icon" (click)="closePanel()">close</mat-icon>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-panel-description>
+      <app-dynamic-form (panelEmitter)="closePanelOnSubmit($event)" [setModifyForm]="modifyElement"
+        [serviceUrl]="option.apiFormUrl ? option.apiFormUrl : option.apiUrl!" [serviceType]="'modify'"
+        [bases]="getModifyFormBases()" style="width: 100%"></app-dynamic-form>
+    </mat-panel-description>
+  </mat-expansion-panel>
+  <app-base-table (modifyEmitter)="sendIdToModifyForm($event)" *ngIf="option.displayedColumns" [setOption]="option">
+  </app-base-table>
+</mat-card>

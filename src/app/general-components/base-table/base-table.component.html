@@ -1,0 +1,46 @@
+<div class="base-page-container">
+    <mat-form-field style="width: 25%;min-width: 250px;">
+        <mat-label>Search...</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Type anything to search in any column." class="base-table-filter" #input>
+    </mat-form-field>
+    <div class="admin-page-general-table-container">
+        <table id="base-table" mat-table [dataSource]="matTableDataSource" matSort
+            class="base-table mat-elevation-z8">
+            <ng-container *ngFor="let col of displayedColumns;" [matColumnDef]="col.id" [sticky]="col.id=='id'"
+                [stickyEnd]="col.id=='modifiers' || col.id=='modify'">
+                <th id="base-table-header-{{col.id}}" mat-header-cell *matHeaderCellDef mat-sort-header
+                    [ngClass]="col.id == 'id' ? 'base-table-header-id-cell' :'base-table-header-cell'">
+                    {{col.name}}
+                </th>
+                <td [ngSwitch]="col.format" mat-cell *matCellDef="let element" class="base-table-cell">
+                    <div *ngSwitchCase="'modifiers'" class="base-table-buttons-container">
+                        <button mat-raised-button color="primary" class="base-table-delete-button"
+                            (click)="deleteClick(element.id)">Delete</button>
+                        <button mat-raised-button color="primary" class="base-table-edit-button"
+                            (click)="modifyClick(element)">Update</button>
+                    </div>
+                    <div *ngSwitchCase="'modify'" class="base-table-buttons-container">
+                        <button mat-raised-button color="primary" class="base-table-edit-button"
+                            (click)="modifyClick(element)">Update</button>
+                    </div>
+                    <div *ngSwitchCase="'json'">
+                        <span *ngIf="col.searchAttributeParent; else simplejson">{{element[col.id][col.searchAttributeParent!][col.searchAttribute!]}}</span>
+                        <ng-template #simplejson>
+                            {{element[col.id][col.searchAttribute!]}}
+                        </ng-template>
+                    </div>
+                    <div *ngSwitchCase="'boolean'">{{element[col.id] ? 'Yes' : 'No'}}</div>
+                    <div *ngSwitchCase="'date'">{{element[col.id] | date: 'YYYY.MM.dd-HH:mm:ss'}}</div>
+                    <div *ngSwitchCase="'wysiwyg'" style="max-height: 58px;overflow: hidden;text-overflow: ellipsis;padding: 5px" [innerHTML]="element[col.id] | sanitizer:'html'"></div>
+                    <div *ngSwitchDefault style="max-height: 58px;overflow: hidden;text-overflow: ellipsis;padding: 5px">{{element[col.id]}}</div>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToShow"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToShow;"></tr>
+        </table>
+    </div>
+    <div *ngIf="showPaginator">
+        <mat-paginator class="base-table-paginator" [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons>
+        </mat-paginator>
+    </div>
+</div>

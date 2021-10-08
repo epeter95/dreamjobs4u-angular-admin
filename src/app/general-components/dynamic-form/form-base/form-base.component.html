@@ -1,0 +1,70 @@
+<div [formGroup]="form" [ngSwitch]="base.controlType">
+    
+    <mat-form-field *ngSwitchCase="'input'" class="form-base-field" appearance="fill">
+        <mat-label [style.color]="base.required ? 'red' : 'black'" [attr.for]="base.key">{{base.label}}</mat-label>
+        <input matInput [placeholder]="base.placeholder" [formControlName]="base.key" [type]="base.type">
+        <mat-hint>{{base.hint}}</mat-hint>
+        <mat-error *ngIf="form.controls[base.key].hasError('required')">{{base.label}} is required!</mat-error>
+    </mat-form-field>
+
+    <div *ngSwitchCase="'file'" class="form-base-field">
+        <input #fileDummyInput hidden="true" [formControlName]="base.key" />
+        <input #fileInput hidden="true" [type]="base.type" [accept]="base.fileAccept" (change)="fileChange($event)" />
+        <a mat-raised-button color="primary" style="display: block;" (click)="fileInput.click()">{{base.label}}
+            <mat-icon>attach_file</mat-icon>
+        </a>
+        <ng-container [ngSwitch]="base.fileType">
+            <img *ngSwitchCase="'image'" class="form-base-image" [alt]="'the image will represent here'"
+                [src]="form.controls[base.key].value!='dummyValue' ? form.controls[base.key].value : fileUrl | sanitizer: 'resourceUrl'">
+            <ng-template *ngSwitchCase="'video'">
+                <video controls autoplay width="300px" *ngIf="fileUrl != '' && form.controls[base.key].value!= '' "
+                    [src]="form.controls[base.key].value!='dummyValue' ? form.controls[base.key].value : fileUrl"></video>
+            </ng-template>
+            <div style="color: black;padding: 10px;font-size: 20px;text-align: center;" *ngSwitchCase="'pdf'">
+                <span *ngIf="fileUrl;else basevalue">{{fileUrl}}</span>
+                <ng-template #basevalue>{{form.controls[base.key].value}}</ng-template>
+            </div>
+        </ng-container>
+        <mat-hint>{{base.hint}}</mat-hint>
+        <mat-error *ngIf="form.controls[base.key].hasError('required')">{{base.label}} is required!</mat-error>
+    </div>
+
+    <mat-form-field *ngSwitchCase="'textbox'" class="form-base-field" appearance="fill">
+        <mat-label [style.color]="base.required ? 'red' : 'black'"  [attr.for]="base.key">{{base.label}}</mat-label>
+        <textarea matInput [placeholder]="base.placeholder" [formControlName]="base.key"></textarea>
+        <mat-hint>{{base.hint}}</mat-hint>
+        <mat-error *ngIf="form.controls[base.key].hasError('required')">{{base.label}} is required!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'dropdown'" class="form-base-field" appearance="fill">
+        <mat-label [style.color]="base.required ? 'red' : 'black'"  [attr.for]="base.key">{{base.label}}</mat-label>
+        <mat-select [formControlName]="base.key">
+            <mat-option *ngFor="let opt of base.options" [value]="opt.key">{{opt.value}}</mat-option>
+        </mat-select>
+        <mat-hint>{{base.hint}}</mat-hint>
+        <mat-error *ngIf="form.controls[base.key].hasError('required')">{{base.label}} is required!</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field *ngSwitchCase="'datepicker'" appearance="fill" class="form-base-field">
+        <mat-label [style.color]="base.required ? 'red' : 'black'" [attr.for]="base.key">{{base.label}}</mat-label>
+        <input matInput placeholder="Choose a date" [matDatepicker]="picker" [formControlName]="base.key">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-hint>{{base.hint}}</mat-hint>
+        <mat-error *ngIf="form.controls[base.key].hasError('required')">{{base.label}} is required!</mat-error>
+    </mat-form-field>
+
+    <div *ngSwitchCase="'checkbox'">
+        <mat-slide-toggle [formControlName]="base.key">{{base.label}}</mat-slide-toggle>
+        <mat-hint [style.color]="base.required ? 'red' : 'black'">{{base.hint}}</mat-hint>
+    </div>
+
+    <mat-form-field appearance="fill" *ngSwitchCase="'multidropdown'">
+        <mat-label [style.color]="base.required ? 'red' : 'black'">{{base.label}}</mat-label>
+        <mat-select [formControlName]="base.key" multiple>
+            <mat-option *ngFor="let option of base.options" [value]="option.key">{{option.value}}</mat-option>
+        </mat-select>
+        <mat-hint>{{base.hint}}</mat-hint>
+        <mat-error *ngIf="form.controls[base.key].hasError('required')">{{base.label}} is required!</mat-error>
+    </mat-form-field>
+</div>
