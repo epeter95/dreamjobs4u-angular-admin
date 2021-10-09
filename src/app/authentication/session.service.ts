@@ -11,9 +11,14 @@ export interface AccessToken {
 })
 export class SessionService {
 
-  constructor(){}
+  constructor(private router: Router){}
   getSession(){
     return localStorage.getItem('admin-token');
+  }
+
+  createSession(token: string){
+    localStorage.setItem('admin-token',token);
+    this.router.navigate(['/']);
   }
 
   clearSession(needReload: boolean){

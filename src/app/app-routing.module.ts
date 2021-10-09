@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './authentication/auth-guard';
 import { LoginComponent } from './authentication/login/login.component';
 import { HomeComponent } from './site-layout/home/home.component';
 import { LanguagesComponent } from './site-layout/languages/languages.component';
@@ -9,7 +10,7 @@ import { SiteLayoutComponent } from './site-layout/site-layout.component';
 const routes: Routes = [
   {
     path: '',
-    component: SiteLayoutComponent,
+    component: SiteLayoutComponent,canActivate: [AuthGuard], canActivateChild: [AuthGuard],
     children: [
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'nyelvek', component: LanguagesComponent, pathMatch: 'full' },

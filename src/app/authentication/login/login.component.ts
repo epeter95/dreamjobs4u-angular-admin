@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/general-components/dialog/dialog.component';
+import { DataService } from 'src/app/site-services/data.service';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-login',
@@ -13,14 +17,35 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required)
   });
   
-  constructor() { }
+  constructor(private dataService: DataService, public dialog: MatDialog, private sessionService: SessionService) { }
 
   ngOnInit(): void {
   }
 
   login(){
     if(this.loginForm.valid){
-      
+      this.dataService.postData('/api/auth/login',this.loginForm.value).subscribe(res=>{
+        if(res.error){
+          this.dialog.open(DialogComponent,{
+            data: {icon: 'warning', text: res.error}
+          });
+          return;
+        }
+        this.sessionService.createSession(res.token);
+      }, error=>{
+        if(error.status == 401){
+          this.dialog.open(DialogComponent,{
+            data: {icon: 'warning', text: 'Sajnáljuk, hibás a jelszó. Kérjük próbálja újra!'}
+          });
+          return;
+        }
+        if(error.status == 403){
+          this.dialog.open(DialogComponent,{
+            data: {icon: 'warning', text: 'Ennek a felhasználónak nincs admin szintű hozzáférése!'}
+          });
+          return;
+        }
+      });
     }
   }
 
