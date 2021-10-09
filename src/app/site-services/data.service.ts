@@ -31,13 +31,13 @@ export class DataService {
     });
   }
 
-  createData(url: string, data: any): Observable<any>{ 
+  postData(url: string, data: any): Observable<any>{ 
     return this.http.post(environment.apiDomain+url, data,{
       headers: this.headers
     });
   }
 
-  modifyData(url: string,id: string, data: any): Observable<any>{
+  putData(url: string,id: string, data: any): Observable<any>{
     return this.http.put(environment.apiDomain+url+'/'+id, data,{
       headers: this.headers
     });

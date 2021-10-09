@@ -84,13 +84,13 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
       } let sendData;
       this.fileDatas.length > 0 ? sendData = formData : sendData = result;
       if (this.serviceType == 'create') {
-        this.dataService.createData(this.serviceUrl, sendData).subscribe(res => {
+        this.dataService.postData(this.serviceUrl, sendData).subscribe(res => {
           this.handleResponseFromSaveOrModify('closeCreate','Sikeres mentés!',res);
         }, error => {
           console.log(error);
         });
       } else {
-        this.dataService.modifyData(this.serviceUrl, this.modifyID, sendData).subscribe(res => {
+        this.dataService.putData(this.serviceUrl, this.modifyID, sendData).subscribe(res => {
           this.handleResponseFromSaveOrModify('closeModify','Sikeres módosítás!',res);
         }, error => {
           console.log(error);
