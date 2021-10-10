@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dreamjobs4u-angular-admin": {
+    "sweetjobs-angular-admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dreamjobs4u-angular-admin",
+            "outputPath": "dist/sweetjobs-angular-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dreamjobs4u-angular-admin:build:production"
+              "browserTarget": "sweetjobs-angular-admin:build:production"
             },
             "development": {
-              "browserTarget": "dreamjobs4u-angular-admin:build:development"
+              "browserTarget": "sweetjobs-angular-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dreamjobs4u-angular-admin:build"
+            "browserTarget": "sweetjobs-angular-admin:build"
           }
         },
         "test": {
@@ -109,5 +109,5 @@
       }
     }
   },
-  "defaultProject": "dreamjobs4u-angular-admin"
+  "defaultProject": "sweetjobs-angular-admin"
 }
