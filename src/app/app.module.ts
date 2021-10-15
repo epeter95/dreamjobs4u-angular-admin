@@ -35,6 +35,8 @@ import { DialogComponent } from './general-components/dialog/dialog.component';
 import { HeaderComponent } from './site-layout/header/header.component';
 import { PublicContentsComponent } from './site-layout/public-contents/public-contents.component';
 import { LanguagesComponent } from './site-layout/languages/languages.component';
+import { RolesComponent } from './site-layout/roles/roles.component';
+import { UsersComponent } from './site-layout/users/users.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { LanguagesComponent } from './site-layout/languages/languages.component'
     DialogComponent,
     HeaderComponent,
     PublicContentsComponent,
-    LanguagesComponent
+    LanguagesComponent,
+    RolesComponent,
+    UsersComponent
 
   ],
   imports: [
