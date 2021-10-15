@@ -4,10 +4,18 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <a [routerLink]="element.url" *ngFor="let element of headerElements" mat-menu-item>
-        <mat-icon>{{element.icon}}</mat-icon>
-        <span>{{element.text}}</span>
-      </a>
+      <ng-container *ngFor="let element of headerElements">
+        <button *ngIf="element.nested; else onlyLink" mat-menu-item [matMenuTriggerFor]="publicContentNested"><mat-icon>{{element.icon}}</mat-icon> {{element.text}}</button>
+        <ng-template #onlyLink>
+          <a [routerLink]="element.url"  mat-menu-item>
+            <mat-icon>{{element.icon}}</mat-icon>
+            <span>{{element.text}}</span>
+          </a>
+        </ng-template>
+      </ng-container>
+    </mat-menu>
+    <mat-menu #publicContentNested="matMenu">
+      <a *ngFor="let nested of publicContentMenuElements" [href]="nested.url" button mat-menu-item>{{nested.text}}</a>
     </mat-menu>
     <span>{{activeName}}</span>
     <span class="example-spacer"></span>

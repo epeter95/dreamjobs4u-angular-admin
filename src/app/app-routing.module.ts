@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'nyelvek', component: LanguagesComponent, pathMatch: 'full' },
-      { path: 'publikus-tartalmak', component: PublicContentsComponent, pathMatch: 'full' },
+      { path: 'publikus-tartalmak/:key', component: PublicContentsComponent, pathMatch: 'full' },
       { path: 'szerepkorok', component: RolesComponent, pathMatch: 'full' },
       { path: 'felhasznalok', component: UsersComponent, pathMatch: 'full' },
 

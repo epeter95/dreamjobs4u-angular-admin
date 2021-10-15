@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { SessionService } from 'src/app/authentication/session.service';
-import { HeaderElement } from 'src/app/interfaces/HeaderElement';
+import { HeaderElement, NestedHeaderElement } from 'src/app/interfaces/HeaderElement';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +10,14 @@ import { HeaderElement } from 'src/app/interfaces/HeaderElement';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
+  publicContentMenuElements: NestedHeaderElement[] = [
+    {text: 'Fejléc', url: '/publikus-tartalmak/header'},
+    {text: 'Lábléc', url: '/publikus-tartalmak/footer'},
+    {text: 'Regisztráció', url: '/publikus-tartalmak/registration'}
+  ];
   headerElements: HeaderElement[] = [
     { icon: 'home', text: 'Kezdőlap', url: '/' },
-    { icon: 'public', text: 'Publikus (statikus) tartalmak', url: '/publikus-tartalmak' },
+    { icon: 'public', text: 'Publikus (statikus) tartalmak', url: '/publikus-tartalmak', nested: true, nestedElements: this.publicContentMenuElements },
     { icon: 'language', text: 'Nyelvek kezelése', url: '/nyelvek' },
     { icon: 'supervised_user_circle', text: 'Felhasználók', url: '/felhasznalok' },
     { icon: 'group', text: 'Felhasználói szerepkörök', url: '/szerepkorok' }
