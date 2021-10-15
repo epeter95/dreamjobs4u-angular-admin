@@ -55,7 +55,9 @@ export class PublicContentsComponent implements OnInit {
     icon: 'language',
     apiUrl: '/api/publicContentTranslations',
     displayedColumns: [
-      {id: 'id', name: 'No.'}, {id: 'Language', name: 'Nyelv', searchAttribute: 'adminName',format: 'json' },
+      {id: 'id', name: 'No.'},
+      {id: 'PublicContent', name: 'Publikus tartalom', searchAttribute: 'adminName',format: 'json' },
+      {id: 'Language', name: 'Nyelv', searchAttribute: 'adminName',format: 'json' },
       {id: 'title', name: 'Publikus felületi név/cím'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
