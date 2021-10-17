@@ -37,6 +37,8 @@ import { PublicContentsComponent } from './site-layout/public-contents/public-co
 import { LanguagesComponent } from './site-layout/languages/languages.component';
 import { RolesComponent } from './site-layout/roles/roles.component';
 import { UsersComponent } from './site-layout/users/users.component';
+import { GeneralMessagesComponent } from './site-layout/general-messages/general-messages.component';
+import { ErrorMessagesComponent } from './site-layout/error-messages/error-messages.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { UsersComponent } from './site-layout/users/users.component';
     PublicContentsComponent,
     LanguagesComponent,
     RolesComponent,
-    UsersComponent
+    UsersComponent,
+    GeneralMessagesComponent,
+    ErrorMessagesComponent
 
   ],
   imports: [
