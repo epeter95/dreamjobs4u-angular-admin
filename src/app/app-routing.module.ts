@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './authentication/auth-guard';
 import { LoginComponent } from './authentication/login/login.component';
+import { CategoriesComponent } from './site-layout/categories/categories.component';
 import { ErrorMessagesComponent } from './site-layout/error-messages/error-messages.component';
 import { GeneralMessagesComponent } from './site-layout/general-messages/general-messages.component';
 import { HomeComponent } from './site-layout/home/home.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'felhasznalok', component: UsersComponent, pathMatch: 'full' },
       { path: 'rendszeruzenetek', component: GeneralMessagesComponent, pathMatch: 'full' },
       { path: 'hibauzenetek', component: ErrorMessagesComponent, pathMatch: 'full' },
+      { path: 'kategoriak', component: CategoriesComponent, pathMatch: 'full' },
     ]
   },
   { path: 'bejelentkezes', component: LoginComponent },

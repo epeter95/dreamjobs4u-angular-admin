@@ -39,6 +39,7 @@ import { RolesComponent } from './site-layout/roles/roles.component';
 import { UsersComponent } from './site-layout/users/users.component';
 import { GeneralMessagesComponent } from './site-layout/general-messages/general-messages.component';
 import { ErrorMessagesComponent } from './site-layout/error-messages/error-messages.component';
+import { CategoriesComponent } from './site-layout/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ErrorMessagesComponent } from './site-layout/error-messages/error-messa
     RolesComponent,
     UsersComponent,
     GeneralMessagesComponent,
-    ErrorMessagesComponent
+    ErrorMessagesComponent,
+    CategoriesComponent
 
   ],
   imports: [
