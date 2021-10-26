@@ -17,7 +17,7 @@ export class JobsComponent implements OnInit {
       {id: 'id', name: 'No.'},
       {id: 'User', name: 'Felhasználó', format: 'json',searchAttribute: 'email'},
       {id: 'companyName', name: 'Cégnév'},{id: 'logoUrl', name: 'Logo'},
-      {id: 'jobLocation', name: 'Székhely'},
+      {id: 'jobLocation', name: 'Székhely'},{id: 'companyWebsite', name: 'Cég weblapja'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
     ],
@@ -58,6 +58,13 @@ export class JobsComponent implements OnInit {
       }),
 
       new InputBase({
+        key: 'companyWebsite',
+        label: 'Cég weblap',
+        required: true,
+        hint: 'Kérjük adja meg a cég weblapját!'
+      }),
+
+      new InputBase({
         key: 'title',
         label: 'Feladat megnevezése',
         required: true,
@@ -71,63 +78,7 @@ export class JobsComponent implements OnInit {
         required: true,
         neededToModifyForm: 'false',
         hint: 'Kérjük adja meg a cég leírását!'
-      }),
-
-      new InputBase({
-        key: 'taskList',
-        label: 'Feladat lista',
-        required: true,
-        neededToModifyForm: 'false',
-        hint: 'Kérjük adja meg a feladat leírását!'
-      }),
-
-      new InputBase({
-        key: 'offerList',
-        label: 'Feladat lista',
-        required: true,
-        neededToModifyForm: 'false',
-        hint: 'Kérjük adja meg az állás ajánlatát!'
-      }),
-
-      new InputBase({
-        key: 'expectationList',
-        label: 'Elvárások',
-        required: true,
-        neededToModifyForm: 'false',
-        hint: 'Kérjük adja meg az elvárásokat!'
-      }),
-
-      new InputBase({
-        key: 'requiredExperience',
-        label: 'Tapasztalat',
-        required: true,
-        neededToModifyForm: 'false',
-        hint: 'Kérjük adja meg az elvárásokat!'
-      }),
-
-      new InputBase({
-        key: 'requiredQualification',
-        label: 'Végzettség',
-        required: true,
-        neededToModifyForm: 'false',
-        hint: 'Kérjük adja meg az elvárt végzettséget!'
-      }),
-
-      new InputBase({
-        key: 'requiredLanguage',
-        label: 'Nyelvi szint',
-        required: true,
-        neededToModifyForm: 'false',
-        hint: 'Kérjük adja meg a nyelvi elvárásokat!'
-      }),
-
-      new InputBase({
-        key: 'employmentType',
-        label: 'Munka beosztás',
-        required: true,
-        neededToModifyForm: 'false',
-        hint: 'Kérjük adja meg az munka beosztást!'
-      }),
+      })
       
     ]
   };
@@ -140,10 +91,7 @@ export class JobsComponent implements OnInit {
       {id: 'id', name: 'No.'}, {id: 'Job', name: 'Állás', searchAttribute: 'companyName',format: 'json' },
       {id: 'Language', name: 'Nyelv', searchAttribute: 'adminName',format: 'json' },
       {id: 'title', name: 'Állás címe'},{id: 'aboutUs', name: 'Rólunk'},
-      {id: 'taskList', name: 'Feladat leírás'},{id: 'expectationList', name: 'Elvárások'},
-      {id: 'offerList', name: 'Elvárások'},{id: 'requiredExperience', name: 'Tapasztalat'},
-      {id: 'requiredQualification', name: 'Végzettség'},{id: 'requiredLanguage', name: 'Nyelvi Tapasztalat'},
-      {id: 'employmentType', name: 'Munka beosztás'},
+      {id: 'jobDescription', name: 'Feladat leírás'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
     ],
@@ -184,54 +132,12 @@ export class JobsComponent implements OnInit {
         hint: 'Kérjük adja meg a cég leírását!'
       }),
 
-      new InputBase({
-        key: 'taskList',
+      new TextboxBase({
+        key: 'jobDecription',
         label: 'Feladat lista',
         required: true,
-        hint: 'Kérjük adja meg a feladat leírását!'
-      }),
-
-      new InputBase({
-        key: 'offerList',
-        label: 'Feladat lista',
-        required: true,
-        hint: 'Kérjük adja meg az állás ajánlatát!'
-      }),
-
-      new InputBase({
-        key: 'expectationList',
-        label: 'Elvárások',
-        required: true,
-        hint: 'Kérjük adja meg az elvárásokat!'
-      }),
-
-      new InputBase({
-        key: 'requiredExperience',
-        label: 'Tapasztalat',
-        required: true,
-        hint: 'Kérjük adja meg az elvárásokat!'
-      }),
-
-      new InputBase({
-        key: 'requiredQualification',
-        label: 'Végzettség',
-        required: true,
-        hint: 'Kérjük adja meg az elvárt végzettséget!'
-      }),
-
-      new InputBase({
-        key: 'requiredLanguage',
-        label: 'Nyelvi szint',
-        required: true,
-        hint: 'Kérjük adja meg a nyelvi elvárásokat!'
-      }),
-
-      new InputBase({
-        key: 'employmentType',
-        label: 'Munka beosztás',
-        required: true,
-        hint: 'Kérjük adja meg az munka beosztást!'
-      }),
+        hint: 'Kérjük adja meg az állás leírását!'
+      })
     ]
   }
 
