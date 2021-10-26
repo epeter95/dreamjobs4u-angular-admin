@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { icon: 'public', text: 'Publikus (statikus) tartalmak', url: '/publikus-tartalmak', nested: true, nestedElements: this.publicContentMenuElements },
     { icon: 'language', text: 'Nyelvek kezelése', url: '/nyelvek' },
     { icon: 'supervised_user_circle', text: 'Felhasználók', url: '/felhasznalok' },
+    { icon: 'work', text: 'Állások', url: '/allasok' },
     { icon: 'group', text: 'Felhasználói szerepkörök', url: '/szerepkorok' },
     { icon: 'category', text: 'Kategóriák', url: '/kategoriak' },
     { icon: 'message', text: 'Rendszerüzenetek', url: '/rendszeruzenetek' },
