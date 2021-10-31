@@ -14,7 +14,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     {text: 'Fejléc', url: '/publikus-tartalmak/header'},
     {text: 'Lábléc', url: '/publikus-tartalmak/footer'},
     {text: 'Regisztráció', url: '/publikus-tartalmak/registration'},
-    {text: 'Bejelentkezés', url: '/publikus-tartalmak/login'}
+    {text: 'Bejelentkezés', url: '/publikus-tartalmak/login'},
+    {text: 'Állás cikk', url: '/publikus-tartalmak/jobPage'},
+    {text: 'Munkáltató állások', url: '/publikus-tartalmak/employerJobs'}
   ];
   headerElements: HeaderElement[] = [
     { icon: 'home', text: 'Kezdőlap', url: '/' },
