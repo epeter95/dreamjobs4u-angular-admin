@@ -78,6 +78,54 @@ export class JobsComponent implements OnInit {
         required: true,
         neededToModifyForm: 'false',
         hint: 'Kérjük adja meg a cég leírását!'
+      }),
+
+      new TextboxBase({
+        key: 'jobDescription',
+        label: 'Állás leírása',
+        required: true,
+        neededToModifyForm: 'false',
+        hint: 'Kérjük adja meg a cég leírását!'
+      }),
+
+      new InputBase({
+        key: 'payment',
+        label: 'Fizetés',
+        required: true,
+        neededToModifyForm: 'false',
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
+      }),
+
+      new InputBase({
+        key: 'jobType',
+        label: 'Munakvégzés',
+        required: true,
+        neededToModifyForm: 'false',
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
+      }),
+
+      new InputBase({
+        key: 'experience',
+        label: 'Tapasztalat',
+        required: true,
+        neededToModifyForm: 'false',
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
+      }),
+
+      new InputBase({
+        key: 'qualification',
+        label: 'Végzettség',
+        required: true,
+        neededToModifyForm: 'false',
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
+      }),
+
+      new InputBase({
+        key: 'language',
+        label: 'Nyelvi elvárás',
+        required: true,
+        neededToModifyForm: 'false',
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
       })
       
     ]
@@ -92,6 +140,11 @@ export class JobsComponent implements OnInit {
       {id: 'Language', name: 'Nyelv', searchAttribute: 'adminName',format: 'json' },
       {id: 'title', name: 'Állás címe'},{id: 'aboutUs', name: 'Rólunk'},
       {id: 'jobDescription', name: 'Feladat leírás'},
+      {id: 'payment', name: 'Fizetés'},
+      {id: 'jobType', name: 'Munkavégzés'},
+      {id: 'experience', name: 'Tapasztalat'},
+      {id: 'qualification', name: 'Végzettség'},
+      {id: 'language', name: 'Nyelvi képzettség'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
     ],
@@ -133,10 +186,45 @@ export class JobsComponent implements OnInit {
       }),
 
       new TextboxBase({
-        key: 'jobDecription',
+        key: 'jobDescription',
         label: 'Feladat lista',
         required: true,
         hint: 'Kérjük adja meg az állás leírását!'
+      }),
+
+      new InputBase({
+        key: 'payment',
+        label: 'Fizetés',
+        required: true,
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
+      }),
+
+      new InputBase({
+        key: 'jobType',
+        label: 'Munakvégzés',
+        required: true,
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
+      }),
+
+      new InputBase({
+        key: 'experience',
+        label: 'Tapasztalat',
+        required: true,
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
+      }),
+
+      new InputBase({
+        key: 'qualification',
+        label: 'Végzettség',
+        required: true,
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
+      }),
+
+      new InputBase({
+        key: 'language',
+        label: 'Nyelvi elvárás',
+        required: true,
+        hint: 'Kérjük adja meg a publikus felületen megjelenítendő nevet!'
       })
     ]
   }
