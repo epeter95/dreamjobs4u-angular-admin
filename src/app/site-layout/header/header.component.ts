@@ -11,6 +11,7 @@ import { HeaderElement, NestedHeaderElement } from 'src/app/interfaces/HeaderEle
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   publicContentMenuElements: NestedHeaderElement[] = [
+    {text: 'Főoldal', url: '/publikus-tartalmak/home'},
     {text: 'Fejléc', url: '/publikus-tartalmak/header'},
     {text: 'Lábléc', url: '/publikus-tartalmak/footer'},
     {text: 'Regisztráció', url: '/publikus-tartalmak/registration'},
