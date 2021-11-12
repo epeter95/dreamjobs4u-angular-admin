@@ -12,12 +12,16 @@ import { HeaderElement, NestedHeaderElement } from 'src/app/interfaces/HeaderEle
 export class HeaderComponent implements OnInit, OnDestroy {
   publicContentMenuElements: NestedHeaderElement[] = [
     {text: 'Főoldal', url: '/publikus-tartalmak/home'},
-    {text: 'Fejléc', url: '/publikus-tartalmak/header'},
     {text: 'Lábléc', url: '/publikus-tartalmak/footer'},
     {text: 'Regisztráció', url: '/publikus-tartalmak/registration'},
     {text: 'Bejelentkezés', url: '/publikus-tartalmak/login'},
-    {text: 'Állás cikk', url: '/publikus-tartalmak/jobPage'},
-    {text: 'Munkáltató állások', url: '/publikus-tartalmak/employerJobs'}
+    {text: 'Állás cikk oldal', url: '/publikus-tartalmak/jobPage'},
+    {text: 'Munkáltató állások', url: '/publikus-tartalmak/employerJobs'},
+    {text: 'Profil', url: '/publikus-tartalmak/profile'},
+    {text: 'Navigációs sáv', url: '/publikus-tartalmak/navbar'},
+    {text: 'Kapcsolat', url: '/publikus-tartalmak/contact'},
+    {text: 'Állások oldal', url: '/publikus-tartalmak/jobsPage'},
+    {text: 'Kategóriák oldal', url: '/publikus-tartalmak/categoriesPage'}
   ];
   headerElements: HeaderElement[] = [
     { icon: 'home', text: 'Kezdőlap', url: '/' },

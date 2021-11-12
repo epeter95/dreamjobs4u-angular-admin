@@ -64,6 +64,7 @@ export class PublicContentsComponent implements OnInit {
         name: 'Fordítások',
         icon: 'language',
         apiUrl: '/api/publicContentTranslations/getByPagePlaceKey/'+param,
+        apiFormUrl: '/api/publicContentTranslations',
         displayedColumns: [
           {id: 'id', name: 'No.'},
           {id: 'PublicContent', name: 'Publikus tartalom', searchAttribute: 'adminName',format: 'json' },
