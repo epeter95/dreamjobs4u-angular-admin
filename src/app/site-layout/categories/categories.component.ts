@@ -12,7 +12,6 @@ export class CategoriesComponent implements OnInit {
   categoryOption: BaseOption = {
     name: 'Kategóriák',
     icon: 'category',
-    disableCreatePanel: true,
     apiUrl: '/api/categories',
     displayedColumns: [
       {id: 'id', name: 'No.'},
