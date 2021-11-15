@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './authentication/auth-guard';
 import { LoginComponent } from './authentication/login/login.component';
+import { AppliedUserStatusesComponent } from './site-layout/applied-user-statuses/applied-user-statuses.component';
 import { CategoriesComponent } from './site-layout/categories/categories.component';
 import { ErrorMessagesComponent } from './site-layout/error-messages/error-messages.component';
 import { GeneralMessagesComponent } from './site-layout/general-messages/general-messages.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'hibauzenetek', component: ErrorMessagesComponent, pathMatch: 'full' },
       { path: 'kategoriak', component: CategoriesComponent, pathMatch: 'full' },
       { path: 'allasok', component: JobsComponent, pathMatch: 'full' },
+      { path: 'statuszok', component: AppliedUserStatusesComponent, pathMatch: 'full' },
     ]
   },
   { path: 'bejelentkezes', component: LoginComponent },

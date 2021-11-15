@@ -41,6 +41,7 @@ import { GeneralMessagesComponent } from './site-layout/general-messages/general
 import { ErrorMessagesComponent } from './site-layout/error-messages/error-messages.component';
 import { CategoriesComponent } from './site-layout/categories/categories.component';
 import { JobsComponent } from './site-layout/jobs/jobs.component';
+import { AppliedUserStatusesComponent } from './site-layout/applied-user-statuses/applied-user-statuses.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { JobsComponent } from './site-layout/jobs/jobs.component';
     GeneralMessagesComponent,
     ErrorMessagesComponent,
     CategoriesComponent,
-    JobsComponent
+    JobsComponent,
+    AppliedUserStatusesComponent
 
   ],
   imports: [
