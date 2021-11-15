@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InputBase, DropdownBase, TextboxBase, FileBase } from 'src/app/general-components/dynamic-form/classes/ControlBases';
+import { InputBase, DropdownBase, TextboxBase, FileBase, CheckboxBase } from 'src/app/general-components/dynamic-form/classes/ControlBases';
 import { BaseOption } from 'src/app/interfaces/BaseOption';
 import { DataService } from 'src/app/site-services/data.service';
 
@@ -62,6 +62,12 @@ export class JobsComponent implements OnInit {
         label: 'Cég weblap',
         required: true,
         hint: 'Kérjük adja meg a cég weblapját!'
+      }),
+
+      new CheckboxBase({
+        key: 'showOnMainPage',
+        label: 'Főoldali megjelenítés',
+        required: true,
       }),
 
       new InputBase({
