@@ -42,6 +42,7 @@ import { ErrorMessagesComponent } from './site-layout/error-messages/error-messa
 import { CategoriesComponent } from './site-layout/categories/categories.component';
 import { JobsComponent } from './site-layout/jobs/jobs.component';
 import { AppliedUserStatusesComponent } from './site-layout/applied-user-statuses/applied-user-statuses.component';
+import { AppliedUsersComponent } from './site-layout/applied-users/applied-users.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { AppliedUserStatusesComponent } from './site-layout/applied-user-statuse
     ErrorMessagesComponent,
     CategoriesComponent,
     JobsComponent,
-    AppliedUserStatusesComponent
+    AppliedUserStatusesComponent,
+    AppliedUsersComponent
 
   ],
   imports: [

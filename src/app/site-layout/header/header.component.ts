@@ -33,7 +33,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { icon: 'category', text: 'Kategóriák', url: '/kategoriak' },
     { icon: 'message', text: 'Rendszerüzenetek', url: '/rendszeruzenetek' },
     { icon: 'warning', text: 'Hibaüzenetek', url: '/hibauzenetek' },
-    { icon: 'layers', text: 'Felhasználói státuszok', url: '/statuszok' }
+    { icon: 'layers', text: 'Felhasználói státuszok', url: '/statuszok' },
+    { icon: 'assignment_ind', text: 'Állásra jelentkezett felhasználók', url: '/jelentkezett-felhasznalok' }
   ];
   headerTitle: string = 'Dreamjobs 4 you admin felület';
   activeName: string = 'Kezdőlap';
