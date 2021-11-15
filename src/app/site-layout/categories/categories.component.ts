@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InputBase, DropdownBase } from 'src/app/general-components/dynamic-form/classes/ControlBases';
+import { InputBase, DropdownBase, FileBase } from 'src/app/general-components/dynamic-form/classes/ControlBases';
 import { BaseOption } from 'src/app/interfaces/BaseOption';
 import { DataService } from 'src/app/site-services/data.service';
 
@@ -18,6 +18,7 @@ export class CategoriesComponent implements OnInit {
       {id: 'id', name: 'No.'},
       {id: 'key', name: 'Kategória kulcsa'},
       {id: 'adminName', name: 'Admin felületi név'},
+      {id: 'pictureUrl', name: 'Kép elérési pontja'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
     ],
@@ -38,6 +39,13 @@ export class CategoriesComponent implements OnInit {
         label: 'Admin felületi név',
         required: true,
         hint: 'Kérjük adja meg az admin felületen megjelenítendő nevet!'
+      }),
+
+      new FileBase({
+        key: 'pictureUrl',
+        label: 'Kép',
+        required: true,
+        hint: 'Kérjük adja meg a kategórihoz tartozó képet'
       }),
 
       new InputBase({
