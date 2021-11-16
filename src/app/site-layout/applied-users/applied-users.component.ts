@@ -18,6 +18,7 @@ export class AppliedUsersComponent implements OnInit {
       {id: 'id', name: 'No.'},
       {id: 'User', name: 'Felhasználó', searchAttribute: 'email',format: 'json' },
       {id: 'Job', name: 'Állás', searchAttribute: 'companyName',format: 'json' },
+      {id: 'AppliedUserStatus', name: 'Státusz', searchAttribute: 'adminName',format: 'json' },
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
     ],
@@ -44,6 +45,16 @@ export class AppliedUsersComponent implements OnInit {
         required: true,
         hint: 'Válassza ki az állást!'
       },this.dataService),
+
+      new DropdownBase({
+        key: 'appliedUserStatusId',
+        label: 'Státusz',
+        optionsUrl: '/api/appliedUserStatuses',
+        optionKey: 'id',
+        optionValue: 'adminName',
+        required: true,
+        hint: 'Válassza ki az állást!'
+      },this.dataService)
       
     ]
   };
