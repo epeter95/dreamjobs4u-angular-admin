@@ -1,4 +1,4 @@
 export const environment = {
-  apiDomain: 'http://localhost:3000',
+  apiDomain: 'https://sweetjobs-backend.herokuapp.com',
   production: true
 };
