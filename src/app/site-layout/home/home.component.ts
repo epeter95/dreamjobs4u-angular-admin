@@ -21,10 +21,41 @@ export class HomeComponent implements OnInit {
       url: '/publikus-tartalmak'
     },
     {
+      title: 'Állások',
+      description: 'Itt az oldalon megjelenítendő állásokhoz tartozó információkat lehet szerkeszteni.',
+      url: '/allasok'
+    },
+    {
+      title: 'Kategóriák',
+      description: 'Itt az oldalon megjelenítendő kategóriákhoz tartozó információkat lehet szerkeszteni.',
+      url: '/kategoriak'
+    },
+    {
       title: 'Nyelvek',
-      description: 'Itt az oldalon megjelenítendő fordításokhoz szükséges nyelveket tudja létrehozni, módosítani, illetve törölni.',
+      description: 'Itt az oldalon megjelenő nyelveket képes szerkeszteni.',
       url: '/nyelvek'
     },
+    {
+      title: 'Rendszer üzenetek',
+      description: 'Itt az oldal altál küldött sikeres üzenetek, dialógus ablak elemek fordításait lehet módosítani.',
+      url: '/rendszeruzenetek'
+    },
+    {
+      title: 'Hiba üzenetek',
+      description: 'Itt az oldal altál küldött hiba üzenetek, dialógus ablak elemek fordításait lehet módosítani.',
+      url: '/hibauzenetek'
+    },
+    {
+      title: 'Felhasználó státuszok',
+      description: 'Itt az állásra jelentkezett felhasználók státuszát lehet állítani.',
+      url: '/statuszok'
+    },
+    {
+      title: 'Állásra jelentkezett felhasználók',
+      description: 'Itt az állásra jelentkezett felhasználókat lehet módosítani.',
+      url: '/jelentkezett-felhasznalok'
+    },
+    
   ]
   constructor() { }
 
