@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { icon: 'language', text: 'Nyelvek kezelése', url: '/nyelvek' },
     { icon: 'supervised_user_circle', text: 'Felhasználók', url: '/felhasznalok' },
     { icon: 'work', text: 'Állások', url: '/allasok' },
-    { icon: 'group', text: 'Felhasználói szerepkörök', url: '/szerepkorok' },
     { icon: 'category', text: 'Kategóriák', url: '/kategoriak' },
     { icon: 'message', text: 'Rendszerüzenetek', url: '/rendszeruzenetek' },
     { icon: 'warning', text: 'Hibaüzenetek', url: '/hibauzenetek' },

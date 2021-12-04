@@ -43,6 +43,7 @@ import { CategoriesComponent } from './site-layout/categories/categories.compone
 import { JobsComponent } from './site-layout/jobs/jobs.component';
 import { AppliedUserStatusesComponent } from './site-layout/applied-user-statuses/applied-user-statuses.component';
 import { AppliedUsersComponent } from './site-layout/applied-users/applied-users.component';
+import { EventsComponent } from './site-layout/events/events.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AppliedUsersComponent } from './site-layout/applied-users/applied-users
     CategoriesComponent,
     JobsComponent,
     AppliedUserStatusesComponent,
-    AppliedUsersComponent
+    AppliedUsersComponent,
+    EventsComponent
 
   ],
   imports: [

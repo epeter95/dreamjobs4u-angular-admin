@@ -23,7 +23,6 @@ const routes: Routes = [
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'nyelvek', component: LanguagesComponent, pathMatch: 'full' },
       { path: 'publikus-tartalmak/:key', component: PublicContentsComponent, pathMatch: 'full' },
-      { path: 'szerepkorok', component: RolesComponent, pathMatch: 'full' },
       { path: 'felhasznalok', component: UsersComponent, pathMatch: 'full' },
       { path: 'rendszeruzenetek', component: GeneralMessagesComponent, pathMatch: 'full' },
       { path: 'hibauzenetek', component: ErrorMessagesComponent, pathMatch: 'full' },
