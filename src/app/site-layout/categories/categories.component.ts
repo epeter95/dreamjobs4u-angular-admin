@@ -69,7 +69,7 @@ export class CategoriesComponent implements OnInit {
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
     ],
-    title: 'Hibaüzenetek publikos oldalon megjelenítendő fordításainak lehetősége!',
+    title: 'Kategóriák publikos oldalon megjelenítendő fordításainak lehetősége!',
     subtitle:  'Itt tudja állítani az oldalon megjelenítendő fordításokat',
     formBases: [
       new DropdownBase({
