@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { icon: 'layers', text: 'Felhasználói státuszok', url: '/statuszok' },
     { icon: 'assignment_ind', text: 'Állásra jelentkezett felhasználók', url: '/jelentkezett-felhasznalok' }
   ];
-  headerTitle: string = 'Dreamjobs 4 you admin felület';
+  headerTitle: string = 'Sweet jobs admin felület';
   activeName: string = 'Kezdőlap';
   routerEventSubscriptions: Subscription = new Subscription();
 
