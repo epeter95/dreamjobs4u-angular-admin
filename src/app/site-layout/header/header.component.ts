@@ -33,7 +33,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { icon: 'message', text: 'Rendszerüzenetek', url: '/rendszeruzenetek' },
     { icon: 'warning', text: 'Hibaüzenetek', url: '/hibauzenetek' },
     { icon: 'layers', text: 'Felhasználói státuszok', url: '/statuszok' },
-    { icon: 'assignment_ind', text: 'Állásra jelentkezett felhasználók', url: '/jelentkezett-felhasznalok' }
+    { icon: 'assignment_ind', text: 'Állásra jelentkezett felhasználók', url: '/jelentkezett-felhasznalok' },
+    { icon: 'event', text: 'Események', url: '/esemenyek' },
   ];
   headerTitle: string = 'Sweet jobs admin felület';
   activeName: string = 'Kezdőlap';

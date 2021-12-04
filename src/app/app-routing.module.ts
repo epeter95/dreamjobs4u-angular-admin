@@ -6,6 +6,7 @@ import { AppliedUserStatusesComponent } from './site-layout/applied-user-statuse
 import { AppliedUsersComponent } from './site-layout/applied-users/applied-users.component';
 import { CategoriesComponent } from './site-layout/categories/categories.component';
 import { ErrorMessagesComponent } from './site-layout/error-messages/error-messages.component';
+import { EventsComponent } from './site-layout/events/events.component';
 import { GeneralMessagesComponent } from './site-layout/general-messages/general-messages.component';
 import { HomeComponent } from './site-layout/home/home.component';
 import { JobsComponent } from './site-layout/jobs/jobs.component';
@@ -29,7 +30,8 @@ const routes: Routes = [
       { path: 'kategoriak', component: CategoriesComponent, pathMatch: 'full' },
       { path: 'allasok', component: JobsComponent, pathMatch: 'full' },
       { path: 'statuszok', component: AppliedUserStatusesComponent, pathMatch: 'full' },
-      { path: 'jelentkezett-felhasznalok', component: AppliedUsersComponent, pathMatch: 'full' }
+      { path: 'jelentkezett-felhasznalok', component: AppliedUsersComponent, pathMatch: 'full' },
+      { path: 'esemenyek', component: EventsComponent, pathMatch: 'full' }
     ]
   },
   { path: 'bejelentkezes', component: LoginComponent },
