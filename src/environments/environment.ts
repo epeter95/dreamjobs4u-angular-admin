@@ -4,7 +4,8 @@
 
 export const environment = {
   apiDomain: 'http://localhost:3000',
-  production: false
+  production: false,
+  superAdminRole: '7OEHVkA0mjeE53xl6qYh'
 };
 
 /*

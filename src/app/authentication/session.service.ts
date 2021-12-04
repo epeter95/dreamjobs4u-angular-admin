@@ -24,6 +24,9 @@ export class SessionService {
   clearSession(needReload: boolean){
     if(localStorage.getItem('admin-token')){
       localStorage.removeItem('admin-token');
+      if(localStorage.getItem('swjbs-ur')){
+        localStorage.removeItem('swjbs-ur');
+      }
       if(needReload){
         location.reload();
       }

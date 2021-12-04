@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/general-components/dialog/dialog.component';
 import { DataService } from 'src/app/site-services/data.service';
+import { RoleService } from 'src/app/site-services/role.service';
 import { SessionService } from '../session.service';
 
 @Component({
@@ -17,7 +18,9 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required)
   });
   
-  constructor(private dataService: DataService, public dialog: MatDialog, private sessionService: SessionService) { }
+  constructor(private dataService: DataService,
+    public dialog: MatDialog,private roleService: RoleService,
+    private sessionService: SessionService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +35,7 @@ export class LoginComponent implements OnInit {
           return;
         }
         this.sessionService.createSession(res.token);
+        this.roleService.setRole(res.roleHash);
       }, error=>{
         if(error.status == 401){
           this.dialog.open(DialogComponent,{
