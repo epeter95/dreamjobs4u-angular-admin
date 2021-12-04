@@ -10,10 +10,10 @@ import { DataService } from 'src/app/site-services/data.service';
 })
 export class UsersComponent implements OnInit {
 
-  userOption: BaseOption = {
+  adminUserOption: BaseOption = {
     name: 'Felhasználók',
     icon: 'supervised_user_circle',
-    apiUrl: '/api/users',
+    apiUrl: '/api/users/adminUsers',
     displayedColumns: [
       {id: 'id', name: 'No.'},
       {id: 'firstName', name: 'Vezetéknév'},{id: 'lastName', name: 'Keresztnév'},
@@ -57,7 +57,63 @@ export class UsersComponent implements OnInit {
       new DropdownBase({
         key: 'roleId',
         label: 'Szerepkör',
-        optionsUrl: '/api/roles',
+        optionsUrl: '/api/roles/adminRoles',
+        optionKey: 'id',
+        optionValue: 'adminName',
+        required: true,
+        hint: 'Válassza ki a szerepkört!'
+      },this.dataService)
+    ]
+  }
+  
+  userOption: BaseOption = {
+    name: 'Felhasználók',
+    icon: 'supervised_user_circle',
+    apiUrl: '/api/users/publicUsers',
+    displayedColumns: [
+      {id: 'id', name: 'No.'},
+      {id: 'firstName', name: 'Vezetéknév'},{id: 'lastName', name: 'Keresztnév'},
+      {id: 'email', name: 'Email cím'},
+      {id: 'Role', name: 'Szerepkör', searchAttribute: 'adminName',format: 'json' },
+      {id: 'createdAt', name: 'Létrehozva', format: 'date'},
+      {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
+    ],
+    title: 'Felhasználók kezelése!',
+    subtitle: 'Itt tudja szerkeszteni a publikus- ,illetve az admin felülethez tartozó felhasználókat.',
+    formBases: [
+
+      new InputBase({
+        key: 'firstName',
+        label: 'Felhasználó vezetékneve',
+        required: true,
+        hint: 'Kérjük adja meg a felhasználó vezetéknevét!'
+      }),
+
+      new InputBase({
+        key: 'lastName',
+        label: 'Felhasználó keresztneve',
+        required: true,
+        hint: 'Kérjük adja meg a felhasználó keresztnevét!'
+      }),
+
+      new InputBase({
+        key: 'email',
+        label: 'Felhasználó email címe',
+        required: true,
+        hint: 'Kérjük adja meg a felhasználó email címét!'
+      }),
+
+      new InputBase({
+        key: 'password',
+        label: 'Felhasználó jelszava',
+        required: true,
+        hint: 'Kérjük adja meg a felhasználó jelszavát!'
+      }),
+
+      new DropdownBase({
+        key: 'roleId',
+        label: 'Szerepkör',
+        optionsUrl: '/api/roles/publicRoles',
         optionKey: 'id',
         optionValue: 'adminName',
         required: true,

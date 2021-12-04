@@ -125,7 +125,12 @@ export class BaseTableComponent implements OnInit,OnDestroy {
   }
 
   getExceptions(element: any){
-    if(element.key=='hun'){
+    if(element.Role){
+      if(element.Role.key == 'superadmin'){
+        return false;
+      }
+    }
+    if(element.key=='hu'){
       return false;
     }else{
       return true;
