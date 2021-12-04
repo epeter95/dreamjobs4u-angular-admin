@@ -29,7 +29,6 @@ export class PublicContentsComponent implements OnInit {
         displayedColumns: [
           {id: 'id', name: 'No.'},{id: 'PagePlace', name: 'Oldal elem', format: 'json', searchAttribute: 'adminName'},
           {id: 'adminName', name: 'Admin felületi név'},
-          {id: 'link', name: 'Tartalom linkje ( ha van )'},
           {id: 'createdAt', name: 'Létrehozva', format: 'date'},
           {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
         ],
@@ -42,13 +41,6 @@ export class PublicContentsComponent implements OnInit {
             placeholder: 'pl.: Magyar',
             required: true,
             hint: 'Kérjük adja meg az admin felületen megjelenítendő nevet!'
-          }),
-    
-          new InputBase({
-            key: 'link',
-            label: 'Tartalom linkje ( ha szükséges',
-            placeholder: 'pl.: https://google.com',
-            hint: 'Kérjük adja meg a publikus tartalomhoz tartozó linket!'
           }),
     
           new InputBase({
