@@ -11,9 +11,8 @@ import { DataService } from 'src/app/site-services/data.service';
 export class AppliedUserStatusesComponent implements OnInit {
 
   appliedUserStatusesOption: BaseOption = {
-    name: 'Hibaüzenetek',
+    name: 'Felhasználói státusz',
     icon: 'layers',
-    disableCreatePanel: true,
     apiUrl: '/api/appliedUserStatuses',
     displayedColumns: [
       {id: 'id', name: 'No.'},
@@ -63,7 +62,7 @@ export class AppliedUserStatusesComponent implements OnInit {
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
     ],
-    title: 'Hibaüzenetek publikos oldalon megjelenítendő fordításainak lehetősége!',
+    title: 'Felhasználói státuszok publikos oldalon megjelenítendő fordításainak lehetősége!',
     subtitle:  'Itt tudja állítani az oldalon megjelenítendő fordításokat',
     formBases: [
       new DropdownBase({
