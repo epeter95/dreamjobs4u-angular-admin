@@ -8,10 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RoleService {
 
-  private roleSubject: Subject<string> = new BehaviorSubject<string>(this.initUserRole()!);
-  roleObservable$ = this.roleSubject.asObservable();
-
-  constructor(private router: Router) {}
+  constructor() {}
 
   getRole(){
     return localStorage.getItem('swjbs-ur');
@@ -19,7 +16,6 @@ export class RoleService {
 
   nextRole(role: string){
     this.setRole(role);
-    this.roleSubject.next(role);
   }
 
   setRole(role: string){

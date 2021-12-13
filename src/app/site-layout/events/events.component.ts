@@ -24,7 +24,7 @@ export class EventsComponent implements OnInit {
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
     ],
     title: 'Üdvözöljük az Állásra jelentkezett felhasználók oldalon!',
-    subtitle:  'Itt tudja állítani az oldalon szereplő állásokra jelentkezett felhasználókat!',
+    subtitle:  'Itt tudja állítani az oldalhoz tartozó eseményeket!',
     formBases: [
 
       new DropdownBase({

@@ -16,11 +16,6 @@ export class HomeComponent implements OnInit {
   };
   homeElements: HomeElement[] = [
     {
-      title: 'Publikus (statikus) tartalmak',
-      description: 'Itt az oldalon megjelenő statikus elemek létrehozására, módosítására, és törlésére van lehetősége, mint például a navigációs bár elemei, a láblécben és fejlécben megjelenő elemek...',
-      url: '/publikus-tartalmak'
-    },
-    {
       title: 'Állások',
       description: 'Itt az oldalon megjelenítendő állásokhoz tartozó információkat lehet szerkeszteni.',
       url: '/allasok'
@@ -54,6 +49,11 @@ export class HomeComponent implements OnInit {
       title: 'Állásra jelentkezett felhasználók',
       description: 'Itt az állásra jelentkezett felhasználókat lehet módosítani.',
       url: '/jelentkezett-felhasznalok'
+    },
+    {
+      title: 'Események',
+      description: 'Itt az felhasználókhoz tartozó eseményeket lehet módosítani.',
+      url: '/esemenyek'
     },
     
   ]
