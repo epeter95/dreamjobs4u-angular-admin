@@ -15,7 +15,7 @@ export class FormBaseComponent implements OnInit {
   constructor(private fileService: FileService) {}
   fileUrl: any;
   ngOnInit(): void {}
-
+  //fájl feltöltés kezelése, fájl observablere való küldés
   fileChange(file: any){
     this.form.controls[this.base.key].setValue('dummyValue');
     let selectedFile = file.target.files[0] as File;

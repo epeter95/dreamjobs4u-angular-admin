@@ -11,23 +11,24 @@ export interface AccessToken {
 })
 export class SessionService {
 
-  constructor(private router: Router){}
-  getSession(){
+  constructor(private router: Router) { }
+  //session token lekérdezése
+  getSession() {
     return localStorage.getItem('admin-token');
   }
-
-  createSession(token: string){
-    localStorage.setItem('admin-token',token);
+  //session token létrehozása
+  createSession(token: string) {
+    localStorage.setItem('admin-token', token);
     this.router.navigate(['/']);
   }
-
-  clearSession(needReload: boolean){
-    if(localStorage.getItem('admin-token')){
+  //session token törlése, role törlése, oldal újratöltés bejelentkezés screenre navigálás
+  clearSession(needReload: boolean) {
+    if (localStorage.getItem('admin-token')) {
       localStorage.removeItem('admin-token');
-      if(localStorage.getItem('swjbs-ur')){
+      if (localStorage.getItem('swjbs-ur')) {
         localStorage.removeItem('swjbs-ur');
       }
-      if(needReload){
+      if (needReload) {
         location.reload();
       }
     }

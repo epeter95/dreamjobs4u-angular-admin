@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-export interface DialogData{
+export interface DialogData {
   icon: string;
   text: string;
   value?: string;
@@ -17,17 +17,17 @@ export class DialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  //dialógus ablak becsukása
   cancelDialog(): void {
     this.dialogRef.close();
   }
   acceptance: boolean = false;
   ngOnInit(): void {
   }
-
-  okDialog(){
-    if(this.data.cancel){
+  //dialógus ablak becsukása elfogadás után
+  okDialog() {
+    if (this.data.cancel) {
       this.acceptance = true;
     }
     this.dialogRef.close();

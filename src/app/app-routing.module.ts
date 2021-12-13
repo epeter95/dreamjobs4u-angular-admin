@@ -15,7 +15,7 @@ import { PublicContentsComponent } from './site-layout/public-contents/public-co
 import { RolesComponent } from './site-layout/roles/roles.component';
 import { SiteLayoutComponent } from './site-layout/site-layout.component';
 import { UsersComponent } from './site-layout/users/users.component';
-
+//alkalmazás végpontok, szükséges authguardal
 const routes: Routes = [
   {
     path: '',

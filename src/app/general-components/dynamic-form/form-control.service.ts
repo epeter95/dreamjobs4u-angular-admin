@@ -8,7 +8,7 @@ import { Base } from './classes/Base';
 export class FormControlService {
 
   constructor() { }
-
+  //form létrehozása required lehetőséggel base class alapján
   toFormGroup(bases: Base<string>[] ) {
     const group: any = {};
 

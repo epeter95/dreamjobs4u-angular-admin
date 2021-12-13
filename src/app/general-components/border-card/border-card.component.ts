@@ -16,21 +16,21 @@ export class BorderCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  sendIdToModifyForm(element: any){
+  //modify formnak adatok elküldése
+  sendIdToModifyForm(element: any) {
     this.modifyPanel.open();
     this.modifyElement = element;
   }
-
-  closePanelOnSubmit(event: any){
+  //expansion panel becsukása submit után
+  closePanelOnSubmit(event: any) {
     event == 'closeCreate' ? this.createPanel.close() : this.modifyPanel.close();
   }
-
-  getModifyFormBases(){
-    return this.option.formBases ? this.option.formBases.filter(element=>element.neededToModifyForm == 'yes') : null;
+  //modify formn előállítása szűréssel
+  getModifyFormBases() {
+    return this.option.formBases ? this.option.formBases.filter(element => element.neededToModifyForm == 'yes') : null;
   }
-
-  closePanel(){
+  //expansion panel becsukása
+  closePanel() {
     this.modifyPanel.close();
   }
 

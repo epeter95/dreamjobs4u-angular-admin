@@ -15,7 +15,7 @@ export interface TableColumn {
   name: string;
   format?: string;
   searchAttribute?: string;
-  searchAttributeParent?:string;
+  searchAttributeParent?: string;
 }
 
 @Component({
@@ -23,10 +23,11 @@ export interface TableColumn {
   templateUrl: './base-table.component.html',
   styleUrls: ['./base-table.component.scss']
 })
-export class BaseTableComponent implements OnInit,OnDestroy {
+export class BaseTableComponent implements OnInit, OnDestroy {
   displayedColumns: TableColumn[] = new Array();
   columnsToShow: string[] = new Array();
   option!: BaseOption;
+  //tábla oszlopok és megjelenítéseik beállítása
   @Input() set setOption(option: BaseOption) {
     if (option.displayedColumns) {
       this.option = option;
@@ -43,47 +44,38 @@ export class BaseTableComponent implements OnInit,OnDestroy {
   showPaginator: boolean = false;
 
   constructor(private dataService: DataService, private tableService: TableService, public dialog: MatDialog) { }
-
+  //tábla újratöltés subscriptionre feliratkozás, tábla betöltése
   ngOnInit(): void {
     this.refreshTable();
-    this.tableSubscription = this.tableService.tableObservable$.subscribe(msg=>{
-      if(msg == 'refresh')this.refreshTable();
+    this.tableSubscription = this.tableService.tableObservable$.subscribe(msg => {
+      if (msg == 'refresh') this.refreshTable();
     })
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.tableSubscription.unsubscribe();
   }
-
+  //tábla inicializálása, egyedi filterpredikátum megadásával, paginátor ha szükséges, és rendezés
   refreshTable() {
     this.dataService.getAllData(this.option.apiUrl!).subscribe(res => {
-      for(let i=0;i<res.length;++i){
-        if(res[i]['startTime']){
-          res[i]['startTime'] = res[i]['startTime'].split(':')[0]+':'+res[i]['startTime'].split(':')[1]
-        }
-
-        if(res[i]['endTime']){
-          res[i]['endTime'] = res[i]['endTime'].split(':')[0]+':'+res[i]['endTime'].split(':')[1]
-        }
-      }
 
       this.matTableDataSource = new MatTableDataSource(res);
-      this.matTableDataSource.filterPredicate = (data,filter)=>{
+      this.matTableDataSource.filterPredicate = (data, filter) => {
         let dataKeys = Object.keys(data);
         let filteredData = this.displayedColumns.filter(column => dataKeys.includes(column.id));
         let booleans = [];
-        for(let i=0;i<filteredData.length;++i){
+        for (let i = 0; i < filteredData.length; ++i) {
           let element = filteredData[i];
-          if(data[element.id]){
-            if(element.format == 'json'){
+          if (data[element.id]) {
+            if (element.format == 'json') {
               let isExist;
-              if(element.searchAttributeParent){
+              if (element.searchAttributeParent) {
                 isExist = data[element.id][element.searchAttributeParent!][element.searchAttribute!].toString().toLowerCase().startsWith(filter);
-              }else{
+              } else {
                 isExist = data[element.id][element.searchAttribute!].toString().toLowerCase().startsWith(filter);
               }
               booleans.push(isExist);
-            }else{
+            } else {
               let isExist = data[element.id].toString().toLowerCase().startsWith(filter);
               booleans.push(isExist);
             }
@@ -93,28 +85,28 @@ export class BaseTableComponent implements OnInit,OnDestroy {
       }
       if (res.length > 5) {
         this.showPaginator = true;
-        setTimeout(()=>this.matTableDataSource.paginator = this.paginator,10);
+        setTimeout(() => this.matTableDataSource.paginator = this.paginator, 10);
       }
-      setTimeout(()=>this.matTableDataSource.sort = this.sort,10);
+      setTimeout(() => this.matTableDataSource.sort = this.sort, 10);
     });
   }
-
+  //tábla oszlopaiban keresés metódus
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.matTableDataSource.filter = filterValue.trim().toLowerCase();
     // let filteredLength = this.matTableDataSource.filteredData.length;
   }
-
+  //tábla sor elküldése border cardnak
   modifyClick(id: any) {
     this.modifyEmitter.emit(id);
   }
-
+  //tábla oszlopok törlése figyelmeztető dialógus megjelenítés és elfogadás után
   deleteClick(id: string) {
-    const ref =this.dialog.open(DialogComponent,{
-      data: {icon: 'warning', text: 'Biztos hogy törli az adott elemet?', value: 'A művelet nem visszavonható!', cancel: true}
+    const ref = this.dialog.open(DialogComponent, {
+      data: { icon: 'warning', text: 'Biztos hogy törli az adott elemet?', value: 'A művelet nem visszavonható!', cancel: true }
     });
-    ref.afterClosed().subscribe(()=>{
-      if(ref.componentInstance.acceptance){
+    ref.afterClosed().subscribe(() => {
+      if (ref.componentInstance.acceptance) {
         let url = this.option.apiFormUrl ? this.option.apiFormUrl : this.option.apiUrl;
         this.dataService.deleteData(url!, id).subscribe(res => {
           this.tableService.setNextText('refresh');
@@ -123,16 +115,16 @@ export class BaseTableComponent implements OnInit,OnDestroy {
       }
     })
   }
-
-  getExceptions(element: any){
-    if(element.Role){
-      if(element.Role.key == 'superadmin'){
+  //tábla sorokban törlés eltüntetése kivétel sorokban kulcs alapján
+  getExceptions(element: any) {
+    if (element.Role) {
+      if (element.Role.key == 'superadmin') {
         return false;
       }
     }
-    if(element.key=='hu'){
+    if (element.key == 'hu') {
       return false;
-    }else{
+    } else {
       return true;
     }
   }

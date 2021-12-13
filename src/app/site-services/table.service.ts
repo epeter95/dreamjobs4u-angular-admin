@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-
+//tábla újratöltéshez szükséges observable
 @Injectable({
   providedIn: 'root'
 })

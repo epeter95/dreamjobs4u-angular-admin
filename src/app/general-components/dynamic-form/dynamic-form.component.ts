@@ -21,6 +21,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   @Output() panelEmitter = new EventEmitter();
   fileSubscription!: Subscription;
   modifyID: string = '';
+  //modifyForm előállítása
   @Input() set setModifyForm(element: any) {
     if (element) {
       let value = { ...element };
@@ -46,7 +47,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
   constructor(private fcService: FormControlService, public dialog: MatDialog,
     private dataService: DataService, private tableService: TableService,
     private fileService: FileService) { }
-
+  //form inicializálása, fájl kezelésre való feliratkozás
   ngOnInit(): void {
     this.initForm();
     this.fileSubscription = this.fileService.fileObservable$.subscribe(fileData => {
@@ -59,15 +60,15 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
       }
     });
   }
-
+  //form incializálása
   initForm() {
     this.form = this.fcService.toFormGroup(this.bases as Base<string>[]);
   }
-
+  //szükséges observablekről való leiratkozás
   ngOnDestroy() {
     this.fileSubscription.unsubscribe();
   }
-
+  //form adatok elküldése, esetleges fájlok req filesba emelése formData segítségével
   onSubmit() {
     if (this.form.valid) {
       let formData = new FormData();
@@ -85,13 +86,13 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
       this.fileDatas.length > 0 ? sendData = formData : sendData = result;
       if (this.serviceType == 'create') {
         this.dataService.postData(this.serviceUrl, sendData).subscribe(res => {
-          this.handleResponseFromSaveOrModify('closeCreate','Sikeres mentés!',res);
+          this.handleResponseFromSaveOrModify('closeCreate', 'Sikeres mentés!', res);
         }, error => {
           console.log(error);
         });
       } else {
         this.dataService.putData(this.serviceUrl, this.modifyID, sendData).subscribe(res => {
-          this.handleResponseFromSaveOrModify('closeModify','Sikeres módosítás!',res);
+          this.handleResponseFromSaveOrModify('closeModify', 'Sikeres módosítás!', res);
         }, error => {
           console.log(error);
         });
@@ -102,7 +103,7 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
       })
     }
   }
-
+  //esetleges hiba ellenőrzése mentés után, ha nem akkor táblázat adatok újratöltése
   handleResponseFromSaveOrModify(panelName: string, dialogText: string, res: any) {
     console.log(res);
     if (res.error == 'SequelizeUniqueConstraintError') {
@@ -113,11 +114,11 @@ export class DynamicFormComponent implements OnInit, OnDestroy {
     }
     if (res.hasOwnProperty('error')) {
       this.dialog.open(DialogComponent, {
-        data: { icon: 'warning', text: 'Ismeretlen hiba!',value: 'oka: ' + res.error }
+        data: { icon: 'warning', text: 'Ismeretlen hiba!', value: 'oka: ' + res.error }
       });
       return;
     }
-    
+
     this.tableService.setNextText('refresh');
     this.dataService.setNextText('refresh');
     this.panelEmitter.emit(panelName);
