@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InputBase, CheckboxBase, DropdownBase } from 'src/app/general-components/dynamic-form/classes/ControlBases';
+import { InputBase, CheckboxBase, DropdownBase, FileBase } from 'src/app/general-components/dynamic-form/classes/ControlBases';
 import { BaseOption } from 'src/app/interfaces/BaseOption';
 import { DataService } from 'src/app/site-services/data.service';
 
@@ -17,6 +17,7 @@ export class LanguagesComponent implements OnInit {
     displayedColumns: [
       {id: 'id', name: 'No.'}, {id: 'key', name: 'Nyelv kulcsa'},
       {id: 'adminName', name: 'Admin felületi név'},
+      {id: 'flagUrl', name: 'Zászló url'},
       {id: 'active', name: 'Aktív', format: 'boolean'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
       {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
@@ -38,6 +39,13 @@ export class LanguagesComponent implements OnInit {
         placeholder: 'pl.: Magyar',
         required: true,
         hint: 'Kérjük adja meg az admin felületen megjelenítendő nevet!'
+      }),
+
+      new FileBase({
+        key: 'flagUrl',
+        label: 'Zászló kép',
+        required: true,
+        hint: 'Kérjük töltse fel a nyelvhez tartozó zászló képét!'
       }),
 
       new InputBase({

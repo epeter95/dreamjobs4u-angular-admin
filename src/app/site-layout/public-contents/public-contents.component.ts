@@ -25,12 +25,13 @@ export class PublicContentsComponent implements OnInit {
         name: 'Publikus (statikus) tartalmak',
         icon: 'public',
         disableCreatePanel: true,
+        apiFormUrl: '/api/publicContents',
         apiUrl: '/api/publicContents/getByPagePlaceKey/'+param,
         displayedColumns: [
           {id: 'id', name: 'No.'},{id: 'PagePlace', name: 'Oldal elem', format: 'json', searchAttribute: 'adminName'},
           {id: 'adminName', name: 'Admin felületi név'},
           {id: 'createdAt', name: 'Létrehozva', format: 'date'},
-          {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
+          {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modify', name:'', format: 'modify'}
         ],
         title: 'Üdvözöljük a publikus (statikus) tartalmak szerkesztése oldalon!',
         subtitle:  'Itt tudja állítani az oldalon megjelenítendő statikus elemeket, és a hozzájuk szükséges fordításokat. A magyar nyelv kötelező, ez az alapnyelv az oldalon!',

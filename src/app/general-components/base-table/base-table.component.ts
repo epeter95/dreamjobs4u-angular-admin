@@ -122,6 +122,11 @@ export class BaseTableComponent implements OnInit, OnDestroy {
         return false;
       }
     }
+    if(element.Language){
+      if(element.Language.key=='hu'){
+        return false;
+      }
+    }
     if (element.key == 'hu') {
       return false;
     } else {
