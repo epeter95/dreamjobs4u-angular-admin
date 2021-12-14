@@ -64,10 +64,19 @@ export class JobsComponent implements OnInit {
         hint: 'Kérjük adja meg a cég weblapját!'
       }),
 
+      new DropdownBase({
+        key: 'categoryId',
+        label: 'Kategória',
+        required: true,
+        optionsUrl: '/api/categories/jobDropdownCategories',
+        optionKey: 'id',
+        optionValue: 'adminName',
+        hint: 'Kérjük adja meg az állás kategóriáját!'
+      },this.dataService),
+
       new CheckboxBase({
         key: 'showOnMainPage',
-        label: 'Főoldali megjelenítés',
-        required: true,
+        label: 'Főoldali megjelenítés'
       }),
 
       new InputBase({
