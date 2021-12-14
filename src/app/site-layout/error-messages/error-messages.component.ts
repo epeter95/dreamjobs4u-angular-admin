@@ -20,7 +20,7 @@ export class ErrorMessagesComponent implements OnInit {
       {id: 'key', name: 'Hibaüzenetek kulcsa'},
       {id: 'adminName', name: 'Admin felületi név'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
-      {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
+      {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modify', name:'', format: 'modify'}
     ],
     title: 'Üdvözöljük a Hibaüzenetek szerkesztése oldalon!',
     subtitle:  'Itt tudja állítani az oldalon megjelenítendő Hibaüzeneteket, és fordításait. A magyar nyelvű fordítás felvétele kötelező!',

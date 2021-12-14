@@ -20,7 +20,7 @@ export class GeneralMessagesComponent implements OnInit {
       {id: 'key', name: 'Rendszerüzenet kulcsa'},
       {id: 'adminName', name: 'Admin felületi név'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
-      {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modifiers', name:'', format: 'modifiers'}
+      {id: 'updatedAt', name: 'Módosítva', format: 'date'},{id: 'modify', name:'', format: 'modify'}
     ],
     title: 'Üdvözöljük a Rendszerüzenetek szerkesztése oldalon!',
     subtitle:  'Itt tudja állítani az oldalon megjelenítendő Rendszerüzeneteket, és fordításait. A magyar nyelvű fordítás felvétele kötelező!',
