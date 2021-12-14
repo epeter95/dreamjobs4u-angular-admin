@@ -16,6 +16,7 @@ export class JobsComponent implements OnInit {
     displayedColumns: [
       {id: 'id', name: 'No.'},
       {id: 'User', name: 'Felhasználó', format: 'json',searchAttribute: 'email'},
+      {id: 'Category', name: 'Kategória', format: 'json',searchAttribute: 'adminName'},
       {id: 'companyName', name: 'Cégnév'},{id: 'logoUrl', name: 'Logo'},
       {id: 'jobLocation', name: 'Székhely'},{id: 'companyWebsite', name: 'Cég weblapja'},
       {id: 'createdAt', name: 'Létrehozva', format: 'date'},
