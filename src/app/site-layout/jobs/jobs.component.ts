@@ -49,7 +49,7 @@ export class JobsComponent implements OnInit {
         label: 'Logo',
         required: true,
         hint: 'Kérjük adja meg a cég logoját'
-      }),
+      }), 
 
       new InputBase({
         key: 'jobLocation',
